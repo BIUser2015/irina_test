@@ -1,17 +1,4 @@
 - view: merch_order_statuses
-
-# # Specify the table name if it's different from the view name:
-#   sql_table_name: my_schema_name.merch_order_statuses
-#
-# # Or, you could make this view a derived table, like this:
-#   derived_table:
-#     sql: |
-#       SELECT
-#         users.id as user_id
-#         , COUNT(*) as lifetime_orders
-#         , MAX(orders.date) as most_recent_purchase_date
-#       FROM orders
-#       GROUP BY user.id
   derived_table:
     sql: |
       select merch_name,
