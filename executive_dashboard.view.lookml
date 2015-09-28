@@ -3,7 +3,7 @@
   fields:
 
   - dimension: dashboard_id
-    primarykey: yes 
+    primary_key: true 
     sql: ${TABLE}.DASHBOARD_ID
 
 
@@ -19,19 +19,6 @@
 
   - dimension: checkout_status
     sql: ${TABLE}.CHECKOUT_STATUS
-    
-  - dimension: checkout_status_green
-    filter: 'GREEN'  
-    sql: ${TABLE}.CHECKOUT_STATUS  
-    
-  - dimension: checkout_status_cancelled
-    filter: 'CANCELLED' 
-    sql: ${TABLE}.CHECKOUT_STATUS  
-    
-  - dimension: checkout_status_red
-    filter: 'RED' 
-    sql: ${TABLE}.CHECKOUT_STATUS  
-    
     
 
   - dimension: created_date_key
@@ -139,4 +126,24 @@
   - measure: count
     type: count
     drill_fields: [merch_name]
+    
+  - measure: checkout_status_green
+    type: count 
+    filter: 
+      checkout_status: GREEN
+  
+    
+  - measure: checkout_status_cancelled
+    type: count 
+    filter: 
+      checkout_status: CANCELLED
+
+    
+  - measure: checkout_status_red
+    type: count   
+    filter: 
+      checkout_status: RED
+   
+    
+    
 
